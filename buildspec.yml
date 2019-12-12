@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to doc
+      - $(docker login --username=$DOCKERHUB_USER --password $DOCKERHUB_PASSWORD)
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...          
+      - CONTAINER_VERSION=$(cat container_version)
+      - docker build -t $IMAGE_REPO_NAME:$CONTAINER_VERSION .
+      - docker tag $IMAGE_REPO_NAME:$CONTAINER_VERSION megah3rtz/logstash-filter-verifier-docker:$CONTAINER_VERSION
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push megah3rtz/logstash-filter-verifier-docker:$CONTAINER_VERSION
