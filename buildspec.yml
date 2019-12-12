@@ -14,7 +14,7 @@ phases:
       - echo Building the Docker image...          
       - CONTAINER_VERSION=$(cat container_version)
       - docker build -t $IMAGE_REPO_NAME:$CONTAINER_VERSION .
-      - echo Pushing version $CONTAINER_VERSION
+      - echo Pushing version $CONTAINER_VERSION.$CODEBUILD_BUILD_NUMBER
       - docker tag $IMAGE_REPO_NAME:$CONTAINER_VERSION megah3rtz/logstash-filter-verifier-docker:$CONTAINER_VERSION.$CODEBUILD_BUILD_NUMBER
       - docker push megah3rtz/logstash-filter-verifier-docker:$CONTAINER_VERSION.$CODEBUILD_BUILD_NUMBER
       - echo Pushing latest
