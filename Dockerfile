@@ -5,5 +5,5 @@ RUN echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | tee -
 RUN apt-get update -y && apt install logstash -y
 RUN wget https://github.com/magnusbaeck/logstash-filter-verifier/releases/download/1.5.1/logstash-filter-verifier_1.5.1_amd64.deb
 RUN dpkg -i logstash-filter-verifier_1.5.1_amd64.deb
-COPY runtests.sh /logstash/
-CMD ["/logstash/runtests.sh"]
+COPY runtests.sh /
+CMD ["/runtests.sh"]
