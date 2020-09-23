@@ -9,7 +9,7 @@ Building the container:
 
 Running the container
 
-``` docker run -d -v <FULL_PATH>/filters:/logstash/filters -v <FULL_PATH>/tests:/logstash/tests logstash-filter-verifier:latest ```
+``` docker run -d -v <FULL_PATH>/filters:/logstash -v <FULL_PATH>/tests:/logstash/tests logstash-filter-verifier:latest ```
 
 Results of tests will be in docker logs
 
