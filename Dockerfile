@@ -1,6 +1,6 @@
 FROM debian
 
-ENV VERIFIER_VERSION 1.6.0
+ENV VERIFIER_VERSION 1.6.2
 
 RUN apt-get update -y && apt-get install wget gnupg2 openjdk-11-jre apt-transport-https -y --no-install-recommends && apt-get clean && rm -rf /var/lib/apt/
 RUN wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add -
